@@ -1,0 +1,20 @@
+consul-server:
+  image: 'sacheendra/consul-server:0.6'
+  deployment_strategy: 'every_node'
+  command: '-bootstrap-expect 3 -dc dc1 -join consul-server'
+  tags:
+    - '1'
+    - appbase
+    - discovery
+  volumes:
+    - '/var/lib/docker/consul:/data'
+consul-client:
+  image: 'sacheendra/consul-agent:0.6'
+  deployment_strategy: 'high_availability'
+  target_num_containers: 1
+  tags:
+    - '1'
+    - appbase
+    - discovery
+  ports:
+    - '443:8500'
