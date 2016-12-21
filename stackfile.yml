@@ -3,9 +3,8 @@ consul-server:
   deployment_strategy: 'every_node'
   command: '-bootstrap-expect 3 -dc dc1 -join consul-server'
   tags:
-    - '1'
-    - appbase
-    - discovery
+    - consul
+    - backup
   volumes:
     - '/var/lib/docker/consul:/data'
 consul-client:
@@ -13,8 +12,7 @@ consul-client:
   deployment_strategy: 'high_availability'
   target_num_containers: 1
   tags:
-    - '1'
-    - appbase
-    - discovery
+    - consul
+    - backup
   ports:
     - '443:8500'
