@@ -1,6 +1,6 @@
 # consul-backup
 
-TBD: use `.env` file for storing secrets instead of using them in the code.
+Script to backup Consul data and ACL to AWS S3 (periodically) and restore them back when needed or automatically at startup.
 
 
 #### .ENV File Format
