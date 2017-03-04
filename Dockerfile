@@ -6,7 +6,7 @@ RUN apk add py-pip
 RUN pip install awscli https://github.com/gmr/consulate/tarball/master
 
 # Data
-RUN mkdir /data && touch /data/backup.json 
+RUN mkdir /data && touch /data/kv.json && touch /data/acl.json
 
 ADD . /config
 
